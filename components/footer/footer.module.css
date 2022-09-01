@@ -9,6 +9,7 @@
     font-size: 18px;
     letter-spacing: 3px;
     margin-bottom: 20px;
+    text-align: center;
    
 }
 
@@ -16,4 +17,10 @@
     text-decoration: none;
     color: black;
     cursor: pointer;
+}
+
+@media (max-width: 562px) {
+    .wrapper {
+        font-size: 13px;
+    }
 }
