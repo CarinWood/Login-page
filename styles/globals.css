@@ -19,7 +19,8 @@
 body {
   width: 100%;
   overflow-x: hidden;
-  font-family: "OpenSans";
+  font-family: "OpenSans", sans-serif;
   position: relative;
+  background-color: rgb(255, 254, 254);
 }
 

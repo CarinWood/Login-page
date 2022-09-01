@@ -8,7 +8,7 @@
 }
 
 .heading {
-    font-family: "CormorantSC";
+    font-family: "CormorantSC", serif;
     font-size: 30px;
     letter-spacing: 3px;
     text-transform: uppercase;
