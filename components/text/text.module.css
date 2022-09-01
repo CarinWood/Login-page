@@ -13,6 +13,7 @@
     letter-spacing: 3px;
     text-transform: uppercase;
     margin-bottom: 30px;
+    text-align: center;
 }
 
 .subtext {
@@ -37,7 +38,7 @@
     justify-content: center;
     align-items: flex-start;
     list-style: none;
-    width: 100%;
+    width: 800px;
 }
 
 .listItem {
@@ -52,4 +53,41 @@
 .icon {
     margin-right: 10px;
     color: rgb(246, 158, 173);
+}
+
+@media (max-width: 1238px) {
+    .subtext {
+        font-size: 16px;
+        width: 70%;
+    }
+
+    .listSection {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .list {
+        align-items: flex-start;
+        width: 40%;
+    }
+
+    .listItem {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 420px) {
+    .heading {
+        font-size: 23px;
+    }
+
+    .subtext {
+        font-size: 12px;
+    }
+
+    .list {
+        width: 80%;
+    }
 }
