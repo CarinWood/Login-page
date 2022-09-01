@@ -46,3 +46,29 @@ npm install react-icons --save
 
 Jag har gjort en väldigt enkel och minimalistisk design. Det ska vara lätt för användaren att snabbt förstå vad som händer på sidan. Rubrikerna är i en annan font än texten för att ögat snabbt ska dras till dem. Färgsättningen är lugn och harmonisk då den har rosa och vit bakgrund med svart text.
 
+## Logik
+
+### Visa / visa inte lösenord
+
+Den här funktionen gjordes med en state, där en boolean initialt har vädet false. Då man klickar på det stängda ögat anropas en funktion som sätter värdet true istället. Om värdet redan har togglats en gång och är true blir värdet istället false.
+
+För att visa respektive inte visa lösenordet gjorde jag sen en ternary operator för värdet av "type" i inputen för lösenordet. Om ovan nämda state (som jag kallar för showPassword) har sitt ursprungsvärde false ska type sättas till "password", om den istället är true ska värdet sättas till "text". Nedan kod visar hur denna ternary ser ut:
+
+```html
+
+<input type={showPassword ?"password":"text"} id="password" className={styles.input} placeholder="Password*"/>
+
+```
+Samma princip användes för att toggla ikonen för öppet respektive stängt öga:
+
+```html
+
+ <span 
+ className={styles.eyespan} 
+ onClick={() => toggleShowPassword()}
+ >
+ {showPassword ? <FaRegEyeSlash className={styles.eye}/>:<FaRegEye className={styles.eye}/>}
+ </span>
+
+```
+
