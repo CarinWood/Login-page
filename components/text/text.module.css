@@ -1,0 +1,55 @@
+.wrapper {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+}
+
+.heading {
+    font-family: "CormorantSC";
+    font-size: 30px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.subtext {
+    font-size: 18px;
+    margin-bottom: 10px;
+    letter-spacing: 3px;
+    text-align: center;
+}
+
+.listSection {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 40%;
+    margin-top: 80px;
+    margin-bottom: 100px;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    list-style: none;
+    width: 100%;
+}
+
+.listItem {
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon {
+    margin-right: 10px;
+    color: rgb(246, 158, 173);
+}
