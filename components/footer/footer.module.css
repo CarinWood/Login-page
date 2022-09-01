@@ -1,0 +1,19 @@
+.wrapper {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "CormorantSC";
+    font-size: 18px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+   
+}
+
+.carin {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
