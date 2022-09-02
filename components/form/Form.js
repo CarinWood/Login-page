@@ -68,7 +68,7 @@ const Form = () => {
 
       const capsLetterCheck=/[A-Z]/.test(value)
       const numberCheck=/[0-9]/.test(value)
-      const specialCharCheck = /[!@#$%^&*]/.test(value)
+      const specialCharCheck = /[!@#$%^&*?]/.test(value)
       setChecks({
         capsLetterCheck,
         numberCheck,
