@@ -102,26 +102,18 @@
     }
 
     .eyespan {
-        margin-left: 175px;
+    
+        margin-left: 169px;
         margin-top: 5.5px;
+     
     }
     
     .eyespanTwo {
+    
         margin-top: 47px;
-        margin-left: 175px;
+        margin-left: 169px;
+     
     }
 
  
-}
-
-@media (max-width: 3765px) {
-    .eyespan {
-        margin-left: 178px;
-        margin-top: 5.5px;
-    }
-    
-    .eyespanTwo {
-        margin-top: 47px;
-        margin-left: 178px;
-    }
 }
