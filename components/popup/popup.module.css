@@ -41,3 +41,29 @@
     background-color: white;
     width: 90px;
 }
+
+@media (max-width: 1056px) {
+    .square {
+        width: 400px;
+        height: 180px;
+        top: 35%;
+        margin-left: -200px;
+    }
+
+    .title {
+        font-size: 16px;
+    }
+
+    .subtext {
+        font-size: 14px;
+    }
+
+    .btn {
+        font-size: 14px;
+        width: 85px;
+    }
+}
+
+@media (max-width: 446px) {
+    
+}

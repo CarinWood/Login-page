@@ -1,8 +1,16 @@
 import styles from './form.module.css'
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Popup from '../popup/Popup';
 import PwdCriteria from '../pwdCriteria/PwdCriteria';
+import { BeatLoader } from 'react-spinners';
+import { css } from '@emotion/react'
+
+const loaderCSS = css`
+  margin-top: 5px;
+  margin-bottom: 25px;
+  margin-left: 200px;
+`
 
 const Form = () => {
 
@@ -21,6 +29,9 @@ const Form = () => {
     numberCheck:false,
     specialCharCheck:false,
   })
+  const [loading, setLoading] = useState(false)
+
+ 
 
   const toggleShowPassword = () => {
     setShowPassword(!showPassword)
@@ -33,7 +44,13 @@ const Form = () => {
   const handleSubmit = (e) => {
        e.preventDefault();
        if(password === confirmPassword) {
-        setShowPopup(true)
+        setLoading(true)
+        setTimeout(() =>{
+          setLoading(false)
+          setShowPopup(true)
+         }, 2000)
+        
+      
        } else {
         alert('Password and Confirm password fields must match!')
        }    
@@ -68,7 +85,10 @@ const Form = () => {
 
   return (
     <>
-    <form className={styles.wrapper} onSubmit={handleSubmit}>
+   {loading? <div className={styles.empty}>
+   {loading && <BeatLoader css={loaderCSS} size={42} color="pink" loading />}
+   </div>
+   :<form className={styles.wrapper} onSubmit={handleSubmit}>
 
         <div className={styles.left}>
             {/* first name input */}
@@ -93,7 +113,7 @@ const Form = () => {
               onChange={e => setEmail(e.target.value)}
             />
         </div>
-
+       
         <div className={styles.right}>
             {/* password input */}
             <input 
@@ -154,10 +174,10 @@ const Form = () => {
             <button className={styles.button} type="submit">Create Account</button>
         </div> 
        
-    </form>
+    </form>}
 
     {/* popup when submit */}
-    
+   
     {showPopup && <Popup firstName={firstName} showPopupFunc={showPopupFunc}/>}
     </>
   )
