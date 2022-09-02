@@ -29,3 +29,29 @@
     letter-spacing: 1px;    
 }
 
+@media (max-width: 1226px) {
+    .square {
+        top: 29%;
+    }
+}
+
+@media (max-width: 1057px) {
+    .square {
+        top: 38%
+    }
+}
+
+@media (max-width: 586px) {
+    .square {
+        top: 37.3%;
+    }
+}
+
+@media (max-width: 312px) {
+    .square {
+        top: 37%;
+    }
+}
+
+
+

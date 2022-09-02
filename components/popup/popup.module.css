@@ -65,5 +65,26 @@
 }
 
 @media (max-width: 446px) {
-    
+    .square {
+        width: 280px;
+        height: 140px;
+        top: 35%;
+        margin-left: -140px;
+        padding-top: 20px;
+    }
+
+    .title {
+        font-size: 14px;
+    }
+
+    .subtext {
+        font-size: 10px;
+        text-align: center;
+    }
+
+    .btn {
+        font-size: 12px;
+        width: 70px;
+    }
+
 }

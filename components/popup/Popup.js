@@ -2,11 +2,16 @@ import styles from './popup.module.css'
 
 
 
-const Popup = ({firstName, showPopupFunc}) => {
+const Popup = ({firstName, showPopupFunc, setFirstName, setLastName, setEmail, setPassword, setConfirmPassword}) => {
 
 
 const handleButtonClick=() => {
   showPopupFunc()
+  setFirstName('')
+  setLastName('')
+  setEmail('')
+  setPassword('')
+  setConfirmPassword('')
 }
 
 

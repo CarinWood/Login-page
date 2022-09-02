@@ -52,6 +52,8 @@ Jag har valt att använda mig av JavaScript och JavaScriptbiblioteket Next.js. D
 
 Next.js är ett smidigt bibliotek att använda då den bland annat har mycket enkla features för navigering mellan sidor och smidig länkning till sidor.
 
+Jag har använt mig av CSS modules för att det ska bli enklare att styla då klassnamnen inte krockar med varandra.
+
 ## Logik
 
 ##### Nedan följer några kodexempel från min kod för att visa vilken logik jag har använt mig av
@@ -110,10 +112,18 @@ I nedan exempel vill jag rendera en popupruta som säger att användaren är reg
 
 ```javascript
    
-   {showPopup && <Popup firstName={firstName} showPopupFunc={showPopupFunc}/>}
+      {showPopup && <Popup 
+    firstName={firstName} 
+    showPopupFunc={showPopupFunc}
+    setFirstName={setFirstName}
+    setLastName={setLastName}
+    setPassword={setPassword}
+    setEmail={setEmail}
+    setConfirmPassword={setConfirmPassword}
+    />}
  
 ```
 
-firstName={firstName} showPopupFunc={showPopupFunc} är props som jag har skickat in i elementet för att kunna använda mig av dessa inne Popup funktionen.
+I elementet har jag även skickat in en hel del props som jag vill använda inne i Popup-funktionen.
 
 

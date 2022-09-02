@@ -85,8 +85,8 @@ const Form = () => {
 
   return (
     <>
-   {loading? <div className={styles.empty}>
-   {loading && <BeatLoader css={loaderCSS} size={42} color="pink" loading />}
+   {loading | showPopup ? <div className={styles.empty}>
+   {loading && <BeatLoader css={loaderCSS} size={38} color="pink" loading />}
    </div>
    :<form className={styles.wrapper} onSubmit={handleSubmit}>
 
@@ -178,7 +178,15 @@ const Form = () => {
 
     {/* popup when submit */}
    
-    {showPopup && <Popup firstName={firstName} showPopupFunc={showPopupFunc}/>}
+    {showPopup && <Popup 
+    firstName={firstName} 
+    showPopupFunc={showPopupFunc}
+    setFirstName={setFirstName}
+    setLastName={setLastName}
+    setPassword={setPassword}
+    setEmail={setEmail}
+    setConfirmPassword={setConfirmPassword}
+    />}
     </>
   )
 }
