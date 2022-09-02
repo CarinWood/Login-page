@@ -1,16 +1,11 @@
 import styles from './form.module.css'
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Popup from '../popup/Popup';
 import PwdCriteria from '../pwdCriteria/PwdCriteria';
 import { BeatLoader } from 'react-spinners';
-import { css } from '@emotion/react'
 
-const loaderCSS = css`
-  margin-top: 5px;
-  margin-bottom: 25px;
-  margin-left: 200px;
-`
+
 
 const Form = () => {
 
@@ -86,7 +81,7 @@ const Form = () => {
   return (
     <>
    {loading | showPopup ? <div className={styles.empty}>
-   {loading && <BeatLoader css={loaderCSS} size={38} color="pink" loading />}
+   {loading && <BeatLoader size={38} color="pink" loading />}
    </div>
    :<form className={styles.wrapper} onSubmit={handleSubmit}>
 

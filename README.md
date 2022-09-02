@@ -1,3 +1,12 @@
+# Log in page
+
+<img src="./components/assets/images/login1.JPG" alt="" style="width: 500px" />
+
+<img src="./components/assets/images/login2.JPG" alt="" style="width: 500px" />
+
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 <details>
@@ -38,6 +47,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 Installera följande:
 
 npm install react-icons --save
+npm install react-spinners
+
 ```
 
 # Dokumentation
@@ -52,7 +63,7 @@ Jag har valt att använda mig av JavaScript och JavaScriptbiblioteket Next.js. D
 
 Next.js är ett smidigt bibliotek att använda då den bland annat har mycket enkla features för navigering mellan sidor och smidig länkning till sidor.
 
-Jag har använt mig av CSS modules för att det ska bli enklare att styla då klassnamnen inte krockar med varandra.
+Jag har använt mig av CSS modules för att det ska bli enklare att styla projektet då klassnamnen inte krockar med varandra.
 
 ## Logik
 
@@ -60,15 +71,21 @@ Jag har använt mig av CSS modules för att det ska bli enklare att styla då kl
 
 ### If-satser
 
-För att lösa logiken med att det måste stå samma sak i fältet för password respektive fältet för confirm password har jag använt mig av en if-sats. Jag har gjort en strikt jämförelse av värdet för password och confirmPassword. Om värdena är exakt lika så kommer en popup ruta att komma fram. Om värdena inte är lika körs else-satsen och en alert ruta kommer fram som säger 'Password and Confirm password fields must match!'.
+För att lösa logiken med att det måste stå samma sak i fältet för password respektive fältet för confirm password har jag använt mig av en if-sats. Jag har gjort en strikt jämförelse av värdet för password och värdet för confirmPassword. Om värdena är exakt lika så kommer en loading spinner och popupruta som gratulerar användaren för att den är registrerad att komma fram. Om värdena inte är lika körs else-satsen och en alert ruta kommer fram som säger 'Password and Confirm password fields must match!'.
 
 ```javascript
 
-        if(password === confirmPassword) {
-        setShowPopup(true)
+           if(password === confirmPassword) {
+        setLoading(true)
+        setTimeout(() =>{
+          setLoading(false)
+          setShowPopup(true)
+         }, 2000)
+        
+      
        } else {
         alert('Password and Confirm password fields must match!')
-       }
+       }  
 
 ```
 
@@ -126,4 +143,9 @@ I nedan exempel vill jag rendera en popupruta som säger att användaren är reg
 
 I elementet har jag även skickat in en hel del props som jag vill använda inne i Popup-funktionen.
 
+### Sammanfattning
 
+Jag tycker det har gått bra att genomföra projektet. Det enda som var nytt för mig var att använda spinnern och npm-paketet "react-spinners" som jag inte använt tidigare, så jag tycker att det var roligt att få lära mig någonting nytt.
+
+I övrigt har jag använt mig av logik och funktioner som jag känt till sedan tidigare.
+Jag uppskattar att arbetet har tagit ca 5-6 timmars effektiv arbetstid.
