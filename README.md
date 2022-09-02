@@ -149,3 +149,4 @@ Jag tycker det har gått bra att genomföra projektet. Det enda som var nytt fö
 
 I övrigt har jag använt mig av logik och funktioner som jag känt till sedan tidigare.
 Jag uppskattar att arbetet har tagit ca 5-6 timmars effektiv arbetstid.
+

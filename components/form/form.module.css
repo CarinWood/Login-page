@@ -60,10 +60,6 @@
     cursor: pointer;
 }
 
-.eye {
-
-}
-
 .empty {
     height: 20vh;
     display: flex;
@@ -78,7 +74,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 100%;
+        width: 100%;    
     }
     .left, .right {
         width: 100%;
@@ -103,6 +99,20 @@
         cursor: pointer;
         margin-top: 30px;
         font-size: 12px;
+    }
+
+    .eyespan {
+    
+        margin-left: 165px;
+        margin-top: 5.5px;
+     
+    }
+    
+    .eyespanTwo {
+    
+        margin-top: 47px;
+        margin-left: 165px;
+     
     }
 
  
