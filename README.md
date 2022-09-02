@@ -56,19 +56,26 @@ För att visa respektive inte visa lösenordet gjorde jag sen en ternary operato
 
 ```html
 
-<input type={showPassword ?"password":"text"} id="password" className={styles.input} placeholder="Password*"/>
+           <input 
+              type={showPassword ? "text" : "password"} 
+              id="password" 
+              className={styles.input} 
+              placeholder="Password*"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
 
 ```
 Samma princip användes för att toggla ikonen för öppet respektive stängt öga:
 
 ```html
 
- <span 
- className={styles.eyespan} 
- onClick={() => toggleShowPassword()}
- >
- {showPassword ? <FaRegEyeSlash className={styles.eye}/>:<FaRegEye className={styles.eye}/>}
- </span>
+            <span 
+            className={styles.eyespan} 
+            onClick={() => toggleShowPassword()}
+            >
+            {showPassword ? <FaRegEye className={styles.eye}/>:<FaRegEyeSlash className={styles.eye}/>}
+            </span>
 
 ```
 

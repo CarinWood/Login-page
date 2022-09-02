@@ -1,0 +1,31 @@
+.square {
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    position: absolute;
+    top: 33%;
+    background-color: white;
+}
+
+.icon {
+    font-size: 12px;
+}
+
+.headline {
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text {
+    font-size: 10px;
+    letter-spacing: 1px;    
+}
+

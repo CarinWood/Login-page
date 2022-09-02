@@ -1,11 +1,26 @@
 import styles from './form.module.css'
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { useState } from 'react';
+import Popup from '../popup/Popup';
+import PwdCriteria from '../pwdCriteria/PwdCriteria';
 
 const Form = () => {
 
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
+  const [terms, setTerms] = useState(false)
+  const [showPopup, setShowPopup] = useState(false)
+  const [pwdCriteria, setPwdCriteria] = useState(false)
+  const [checks, setChecks] = useState({
+    capsLetterCheck:false,
+    numberCheck:false,
+    specialCharCheck:false,
+  })
 
   const toggleShowPassword = () => {
     setShowPassword(!showPassword)
@@ -15,29 +30,132 @@ const Form = () => {
     setShowConfirmPassword(!showConfirmPassword)
   }
 
+  const handleSubmit = (e) => {
+       e.preventDefault();
+       if(password === confirmPassword) {
+        setShowPopup(true)
+       } else {
+        alert('Password and Confirm password fields must match!')
+       }
+
+      
+     
+
+
+        
+  }
+
+  const handleOnFocus = () => {
+    setPwdCriteria(true)
+  }
+ 
+  const handleOnBlur = () => {
+    setPwdCriteria(false)
+  }
+
+  const handleKeyUp = (e) => {
+    const { value } = e.target
+
+      const capsLetterCheck=/[A-Z]/.test(value)
+      const numberCheck=/[0-9]/.test(value)
+      const specialCharCheck = /[!@#$%^&*]/.test(value)
+      setChecks({
+        capsLetterCheck,
+        numberCheck,
+        specialCharCheck,
+      })
+  }
+
 
 
   return (
-    <form className={styles.wrapper}>
+    <>
+    <form className={styles.wrapper} onSubmit={handleSubmit}>
+
         <div className={styles.left}>
-            <input type="text" className={styles.input} placeholder="First Name*"/>
-            <input type="text" className={styles.input} placeholder="Last Name*"/>
-            <input type="text" className={styles.input} placeholder="Email*"/>
+            <input 
+              required
+              type="text" className={styles.input} placeholder="First Name*"
+              value={firstName}
+              onChange={e => setFirstName(e.target.value)}
+            />
+            <input 
+              required
+              type="text" className={styles.input} placeholder="Last Name*"
+              value={lastName}
+              onChange={e => setLastName(e.target.value)}
+            />
+            <input 
+              required
+              type="text" className={styles.input} placeholder="Email*"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+            />
         </div>
+
         <div className={styles.right}>
-            <input type={showPassword ?"password":"text"} id="password" className={styles.input} placeholder="Password*"/>
-            <span className={styles.eyespan} onClick={() => toggleShowPassword()}>{showPassword ? <FaRegEyeSlash className={styles.eye}/>:<FaRegEye className={styles.eye}/>}</span>
-            <input type={showConfirmPassword ? "password" : "text"} id="password" className={styles.input} placeholder="Confirm Password*"/>
-            <span className={styles.eyespanTwo} onClick={() => toggleShowConfirmPassword()}>{showConfirmPassword ? <FaRegEyeSlash className={styles.eye}/>:<FaRegEye className={styles.eye}/>}</span>
+            {/* password input */}
+
+            <input 
+              required
+              type={showPassword ?"text" : "password"} 
+              className={styles.input} 
+              placeholder="Password*"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              onFocus={handleOnFocus}
+              onBlur={handleOnBlur}
+              onKeyUp={handleKeyUp}
+            />
+            <span className={styles.eyespan} 
+            onClick={() => toggleShowPassword()}
+            >
+            {showPassword ? <FaRegEye className={styles.eye}/>:<FaRegEyeSlash className={styles.eye}/>}
+            </span>
+
+            {pwdCriteria && <PwdCriteria 
+            capsLetterFlag={checks.capsLetterCheck ? "valid": "invalid"}
+            numberFlag={checks.numberCheck ? "valid" : "invalid"}
+            specialCharFlag={checks.specialCharCheck ? "valid" : "invalid"}
+            />}
+
+            <input 
+              required
+              type={showConfirmPassword ? "text" : "password"} 
+              className={styles.input} 
+              placeholder="Confirm Password*"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+            <span 
+              className={styles.eyespanTwo} 
+              onClick={() => toggleShowConfirmPassword()}
+            >
+              {showConfirmPassword ? <FaRegEye className={styles.eye}/>:<FaRegEyeSlash className={styles.eye}/>}
+            </span>
+
+            {/* checkbox */}
+
             <div className={styles.checkboxDiv}>
-              <input type="checkbox" id="terms" name="terms" value="terms"/>
-              <label className={styles.label} for="terms"><i>I agree to terms and conditions</i></label>
+              <input 
+                required
+                id="terms"
+                type="checkbox" 
+                name="terms" 
+                value="terms"
+                onClick={(e) => setTerms(e.target.checked)}
+              />
+              <label htmlFor='terms' className={styles.label}><i>I agree to terms and conditions</i></label>
             </div>
-          
-            <button className={styles.button} type="button">Create Account</button>
-        </div>
+
+            {/* Confirm button */}
+
+            <button className={styles.button} type="submit">Create Account</button>
+        </div> 
        
     </form>
+    {showPopup && <Popup/>}
+    </>
   )
 }
 
