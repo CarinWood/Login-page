@@ -1,6 +1,5 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-
 <details>
 <summary>Getting Started</summary>
 First, run the development server:
@@ -40,6 +39,7 @@ Installera följande:
 
 npm install react-icons --save
 ```
+
 # Dokumentation
 
 ## Design
@@ -48,13 +48,27 @@ Jag har gjort en väldigt enkel och minimalistisk design. Det ska vara lätt fö
 
 ## Avgränsning
 
-Jag har valt att använda mig av JavaScript och JavaScriptbiblioteket Next.js. Detta för att jag anser att uppgiften skulle ta för mycket tid om jag hade behövt sätta mig in i programmeringssprket Elm som är helt nytt för mig. 
+Jag har valt att använda mig av JavaScript och JavaScriptbiblioteket Next.js. Detta för att jag anser att uppgiften skulle ta för mycket tid om jag hade behövt sätta mig in i programmeringssprket Elm som är helt nytt för mig.
 
 Next.js är ett smidigt bibliotek att använda då den bland annat har mycket enkla features för navigering mellan sidor och smidig länkning till sidor.
 
 ## Logik
 
-##### Nedan följer några kodexempel från min kod för att visa vilken logik jag har använt mig av.
+##### Nedan följer några kodexempel från min kod för att visa vilken logik jag har använt mig av
+
+### If-satser
+
+För att lösa logiken med att det måste stå samma sak i fältet för password respektive fältet för confirm password har jag använt mig av en if-sats. Jag har gjort en strikt jämförelse av värdet för password och confirmPassword. Om värdena är exakt lika så kommer en popup ruta att komma fram. Om värdena inte är lika körs else-satsen och en alert ruta kommer fram som säger 'Password and Confirm password fields must match!'.
+
+```javascript
+
+        if(password === confirmPassword) {
+        setShowPopup(true)
+       } else {
+        alert('Password and Confirm password fields must match!')
+       }
+
+```
 
 ### Visa / visa inte lösenord
 
@@ -62,7 +76,7 @@ Den här funktionen gjordes med en state, där en boolean initialt har vädet fa
 
 För att visa respektive inte visa lösenordet gjorde jag sen en ternary operator för värdet av "type" i inputen för lösenordet. Om ovan nämda state (som jag kallar för showPassword) har sitt ursprungsvärde false ska type sättas till "password", om den istället är true ska värdet sättas till "text". Nedan kod visar hur denna ternary ser ut:
 
-```html
+```javascript
 
            <input 
               type={showPassword ? "text" : "password"} 
@@ -74,9 +88,10 @@ För att visa respektive inte visa lösenordet gjorde jag sen en ternary operato
             />
 
 ```
+
 Samma princip användes för att toggla ikonen för öppet respektive stängt öga:
 
-```html
+```javascript
 
             <span 
             className={styles.eyespan} 
@@ -91,12 +106,14 @@ Samma princip användes för att toggla ikonen för öppet respektive stängt ö
 
 Istället för att använda sig av en ternary operator kan man vid vissa tillfällen ha mer nytta av att använda en så kallad short circuit. Den används med fördel då man vill rendera någonting när en boolean är sann, men inte visa någonting alls då vädet på boolean är falskt.
 
-I nedan exempel vill jag rendera en popup ruta som säger att användaren är registrerad då alla värden är korrekt ifyllda i inputfälten. Om registreringen inte går igenom vill jag inte rendera någonting. I detta fallet kan man använda sig av && för att rendera någonting så fort en boolean är sann.
+I nedan exempel vill jag rendera en popupruta som säger att användaren är registrerad då alla värden är korrekt ifyllda i inputfälten. Om registreringen inte går igenom vill jag inte rendera någonting. I detta fallet kan man använda sig av && för att rendera någonting så fort en boolean är sann.
 
-html```
-
+```javascript
+   
    {showPopup && <Popup firstName={firstName} showPopupFunc={showPopupFunc}/>}
-
+ 
 ```
 
 firstName={firstName} showPopupFunc={showPopupFunc} är props som jag har skickat in i elementet för att kunna använda mig av dessa inne Popup funktionen.
+
+
