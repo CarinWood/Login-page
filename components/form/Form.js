@@ -36,13 +36,11 @@ const Form = () => {
         setShowPopup(true)
        } else {
         alert('Password and Confirm password fields must match!')
-       }
+       }    
+  }
 
-      
-     
-
-
-        
+  const showPopupFunc = () => {
+    setShowPopup(false)
   }
 
   const handleOnFocus = () => {
@@ -73,18 +71,21 @@ const Form = () => {
     <form className={styles.wrapper} onSubmit={handleSubmit}>
 
         <div className={styles.left}>
+            {/* first name input */}
             <input 
               required
               type="text" className={styles.input} placeholder="First Name*"
               value={firstName}
               onChange={e => setFirstName(e.target.value)}
             />
+            {/* last name input */}
             <input 
               required
               type="text" className={styles.input} placeholder="Last Name*"
               value={lastName}
               onChange={e => setLastName(e.target.value)}
             />
+            {/* email input */}
             <input 
               required
               type="text" className={styles.input} placeholder="Email*"
@@ -95,7 +96,6 @@ const Form = () => {
 
         <div className={styles.right}>
             {/* password input */}
-
             <input 
               required
               type={showPassword ?"text" : "password"} 
@@ -119,6 +119,7 @@ const Form = () => {
             specialCharFlag={checks.specialCharCheck ? "valid" : "invalid"}
             />}
 
+            {/* Confirm password input */}
             <input 
               required
               type={showConfirmPassword ? "text" : "password"} 
@@ -148,13 +149,16 @@ const Form = () => {
               <label htmlFor='terms' className={styles.label}><i>I agree to terms and conditions</i></label>
             </div>
 
-            {/* Confirm button */}
+            {/* submit button */}
 
             <button className={styles.button} type="submit">Create Account</button>
         </div> 
        
     </form>
-    {showPopup && <Popup/>}
+
+    {/* popup when submit */}
+    
+    {showPopup && <Popup firstName={firstName} showPopupFunc={showPopupFunc}/>}
     </>
   )
 }

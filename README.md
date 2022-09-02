@@ -46,7 +46,15 @@ npm install react-icons --save
 
 Jag har gjort en väldigt enkel och minimalistisk design. Det ska vara lätt för användaren att snabbt förstå vad som händer på sidan. Rubrikerna är i en annan font än texten för att ögat snabbt ska dras till dem. Färgsättningen är lugn och harmonisk då den har rosa och vit bakgrund med svart text.
 
+## Avgränsning
+
+Jag har valt att använda mig av JavaScript och JavaScriptbiblioteket Next.js. Detta för att jag anser att uppgiften skulle ta för mycket tid om jag hade behövt sätta mig in i programmeringssprket Elm som är helt nytt för mig. 
+
+Next.js är ett smidigt bibliotek att använda då den bland annat har mycket enkla features för navigering mellan sidor och smidig länkning till sidor.
+
 ## Logik
+
+##### Nedan följer några kodexempel från min kod för att visa vilken logik jag har använt mig av.
 
 ### Visa / visa inte lösenord
 
@@ -79,3 +87,16 @@ Samma princip användes för att toggla ikonen för öppet respektive stängt ö
 
 ```
 
+### Short circuit
+
+Istället för att använda sig av en ternary operator kan man vid vissa tillfällen ha mer nytta av att använda en så kallad short circuit. Den används med fördel då man vill rendera någonting när en boolean är sann, men inte visa någonting alls då vädet på boolean är falskt.
+
+I nedan exempel vill jag rendera en popup ruta som säger att användaren är registrerad då alla värden är korrekt ifyllda i inputfälten. Om registreringen inte går igenom vill jag inte rendera någonting. I detta fallet kan man använda sig av && för att rendera någonting så fort en boolean är sann.
+
+html```
+
+   {showPopup && <Popup firstName={firstName} showPopupFunc={showPopupFunc}/>}
+
+```
+
+firstName={firstName} showPopupFunc={showPopupFunc} är props som jag har skickat in i elementet för att kunna använda mig av dessa inne Popup funktionen.

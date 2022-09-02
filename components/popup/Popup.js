@@ -1,10 +1,24 @@
-import './popup.module.css'
+import styles from './popup.module.css'
 
-const Popup = () => {
+
+
+const Popup = ({firstName, showPopupFunc}) => {
+
+
+const handleButtonClick=() => {
+  showPopupFunc()
+}
+
+
+
   return (
-    <div>
-        Popup
-    </div>
+    <section className={styles.square}>
+        <p className={styles.title}>Congratulations {firstName}!</p>
+        <p className={styles.subtext}>You have successfully been registered</p>
+        <div className={styles.buttonarea}>
+          <button className={styles.btn} onClick={handleButtonClick}>OK</button>
+        </div>
+    </section>
   )
 }
 
